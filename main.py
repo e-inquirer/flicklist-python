@@ -103,7 +103,8 @@ class AddMovie(webapp2.RequestHandler):
 
         # TODO 2
         # if the user typed nothing at all, redirect and yell at them
-
+        if new_movie == "" or new_movie == " ":
+            return self.response.write("foo bin baz")
 
         # TODO 3
         # if the user wants to add a terrible movie, redirect and yell at them
