@@ -113,7 +113,7 @@ class AddMovie(webapp2.RequestHandler):
         # 'escape' the user's input so that if they typed HTML, it doesn't mess up our site
 
         # build response content
-        new_movie_element = "<strong>" + new_movie + "</strong>"
+        new_movie_element = "<strong>" + cgi.escape(new_movie, quote=True) + "</strong>"
         sentence = new_movie_element + " has been added to your Watchlist!"
         content = page_header + "<p>" + sentence + "</p>" + page_footer
         self.response.write(content)
