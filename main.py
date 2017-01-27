@@ -104,11 +104,13 @@ class AddMovie(webapp2.RequestHandler):
         # TODO 2
         # if the user typed nothing at all, redirect and yell at them
         if new_movie == "" or new_movie == " ":
-            return self.response.write("foo bin baz")
+            return self.response.write("Type something in you fool!")
 
         # TODO 3
         # if the user wants to add a terrible movie, redirect and yell at them
-
+        for i in range(len(terrible_movies)):
+            if new_movie == terrible_movies[i]:
+                return self.response.write("That's an awful movie... try again!")
 
         # TODO 1
         # 'escape' the user's input so that if they typed HTML, it doesn't mess up our site
